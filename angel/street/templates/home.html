@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
+  <p>Your bio: {{ user.profile.bio }}</p>
+  <p>Your email: {{ user.profile.email }}</p>
+  <a href="https://appear.in/{{user.username}}">Go live now</a>
+{% endblock %}
+ 	
