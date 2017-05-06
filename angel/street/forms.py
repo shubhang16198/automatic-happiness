@@ -1,25 +1,14 @@
-# from django import forms
-# from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth.models import User
-
-# class SignUpForm(UserCreationForm):
-#     first_name = forms.CharField()
-#     art = forms.CharField(help_text="What do you perform ? ")
-#     mobile_no = forms.CharField(help_text="For payment!")
-
-#     class Meta:
-#         model = User
-#         fields = {'first_name','last_name','username','email','password1','password2','art','mobile_no'}
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    bio = forms.CharField(help_text='A bit about yourself')
+    email = forms.EmailField(help_text="A valid email id")
+    pic  = forms.FileField(help_text="A picture of you!")
+
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )   
+        fields = ('username', 'bio', 'email' , 'pic' ,'password1', 'password2', )
