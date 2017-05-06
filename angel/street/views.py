@@ -1,14 +1,21 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.models import User
 from .forms import SignUpForm
-
+from .models import Profile
+from django.http import HttpResponse
 
 @login_required
 def home(request):
     return render(request, 'home.html')
 
+def start(request):
+    return render(request,'start.html')
+
+def performances(request):
+    users = User.objects.all()
+    return render(request , 'performances.html', {'users':users})
 
 def signup(request):
     if request.method == 'POST':
