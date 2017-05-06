@@ -34,6 +34,12 @@
 	margin: auto;
 	position: absolute;
 }	
+.border{
+	border: 2px solid;
+	border-width: 2px;
+	border-color: white;
+}
+
 body
 {
 	background: #f5f5f5;
@@ -69,9 +75,7 @@ h5
 {
 	position: absolute;
 }
-
-
-	</style>
+</style>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
@@ -81,16 +85,16 @@ h5
 	<video autoplay loop muted id="bgvideo">
 		<source src="output.mp4" type="video/mp4">
 	</video>
-	
-	<div class="container white z-depth-2">
+
+	<div class="container white z-depth-2 col s12" style="min-width: 800px;">
 	<ul class="tabs teal">
-		<li class="tab col s3" ><a class="white-text" href="#login" onclick="change('login');">login</a></li>
-		<li class="tab col s3"><a class="white-text active" href="#register" onclick="change('register');">register</a></li>
+		<li class="tab col s3"><a id="a" class="white-text active" href="#register" onclick="change('register');">register</a></li>
+		<li class="tab col s3"><a id="b" class="white-text" href="#login" onclick="change('login');">login</a></li>
 	</ul>
-	<div id="login" class="col s12 hidden center">
+	<div id="login" class="col s6 hidden center">
 		<form class="col s12">
 			<div class="form-container">
-				<h3><font color="white"><pre>   Welcome Back  </pre></font></h3>
+				<h3><font color="white">Welcome Back</font></h3>
 				<div class="row">
 					<div class="input-field col s12">
 						<input style="color: white;" id="email" type="email" class="validate">
@@ -112,10 +116,10 @@ h5
 			</div>
 		</form>
 	</div>
-	<div id="register" class="col s12 visible-block active center" >
+	<div id="register" class="col s6 visible-block active center">
 		<form class="col s12">
 			<div class="form-container">
-				<h3><font color="white">Sign Up as Street Artist</font></h3>
+				<h3><font color="white">Sign Up</font></h3>
 				<div class="row">
 					<div class="input-field col s6">
 						<input style="color: white;" id="last_name" type="text" class="validate">
@@ -150,33 +154,44 @@ h5
 			</div>
 		</form>
 	</div>
+	<div align="center" class="row">
+        <div class="col s6 offset-s6" style="transform: translateY(60%)";>
+          <div class="card transparent">
+            <div class="card-content white-text">
+              <span class="card-title"><b>Street Performance</b><br><font size="2"><i>Real Talent Lies Here.</i></font></span>
+              <p>If My Street Performance Make You Stop Walking By,
+              You Owe Me a Buck.</p>
+            </div>
+            <div class="card-action">
+              <a href="https://appear.in/pranav"><font color="teal"></style>Watch Live</font></a>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"> </script>
 
 <script type="text/javascript">
-function myFunction(ID) {
-    if(ID=='register'){
-    	document.getElementById('register').style.display = 'block';
-    	document.getElementById('login').style.display = 'none';
-    }
-    else{
-    document.getElementById('register').style.display = 'none';
-    document.getElementById('login').style.display = 'block';	
-    }
-}
+
 function change(id) {
 	if (id === 'register') {
 		$('#login').addClass('hidden');
 		$('#register').removeClass('hidden');
 		$('#register').addClass('visible-block');
 		$('#login').removeClass('visible-block');
+		$('#a').addClass('border');
+		$('#b').removeClass('border');
 	}
 	if (id === 'login') {
 		$('#register').addClass('hidden');
 		$('#login').removeClass('hidden');
 		$('#login').addClass('visible-block');
 		$('#register').removeClass('visible-block');
+		$('#b').addClass('border');
+		$('#a').removeClass('border');
+		
 	}
 }
 window.onload = change('register');
