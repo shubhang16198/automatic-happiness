@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-<<<<<<< HEAD
-=======
 import django.contrib.auth
 
->>>>>>> 660495aa0f82c72b8c310ba96e8c46572605f0e5
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*h2j!^75p-iw09pbwatj3*9b*tl1_s=4i2lkfh-!jlv_mb82yh'
 =======
 SECRET_KEY = 'd25qxw+@mop((h*jqw!qq1w9^k)8h$(+#0o#h=z(ar+p%=2#ec'
->>>>>>> 660495aa0f82c72b8c310ba96e8c46572605f0e5
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,10 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-=======
+
     'street',
->>>>>>> 660495aa0f82c72b8c310ba96e8c46572605f0e5
+
 ]
 
 MIDDLEWARE = [
