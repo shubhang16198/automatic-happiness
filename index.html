@@ -121,13 +121,13 @@ h5
 			<div class="form-container">
 				<h3><font color="white">Sign Up</font></h3>
 				<div class="row">
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input style="color: white;" id="last_name" type="text" class="validate">
-						<label for="last_name">First Name</label>
+						<label for="last_name">Username</label>
 					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input style="color: white;" id="last_name" type="text" class="validate">
-						<label for="last_name">Last Name</label>
+						<label for="last_name">Bio</label>
 					</div>
 				</div>
 				<div class="row">
@@ -136,6 +136,11 @@ h5
 						<label for="email">Email</label>
 					</div>
 				</div>
+
+
+				<input type="file" onchange="previewFile()" style="color: white;" name="filename" accept="image/jpeg, image/png"><br>
+				<img src="" height="200" alt="Image preview...">
+
 				<div class="row">
 					<div class="input-field col s12">
 						<input style="color: white;" id="password" type="password" class="validate">
@@ -159,7 +164,7 @@ h5
           <div class="card transparent">
             <div class="card-content white-text">
               <span class="card-title"><b>Street Performance</b><br><font size="2"><i>Real Talent Lies Here.</i></font></span>
-              <p>If My Street Performance Make You Stop Walking By,
+              <p>If My Street Performance Makes You Stop Walking By,
               You Owe Me a Buck.</p>
             </div>
             <div class="card-action">
@@ -196,5 +201,27 @@ function change(id) {
 }
 window.onload = change('register');
 </script>
+
+<script>
+   function previewFile(){
+       var preview = document.querySelector('img'); //selects the query named img
+       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+       		preview.style.display="block";
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.style.display = "none";
+       }
+  }
+
+  previewFile();  //calls the function named previewFile()
+  </script>
+
 </body>
 </html>
