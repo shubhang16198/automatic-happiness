@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://cdn.webrtc-experiment.com/socket.io/PeerConnection.js"></script> 
+    </head>
+    <script type="text/javascript">
+      var peer = new PeerConnection('http://0.0.0.0:8000');
+      peer.onStreamAdded = function(e) {
+      document.body.appendChild(e.mediaElement);
+      };
+
+      peer.startBroadcasting()
+    </script>
+    <body>
+        <video height="300" id="localVideo"></video>
+        <div id="remotesVideos"></div>
+    </body>
+</html>

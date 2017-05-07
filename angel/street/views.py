@@ -8,14 +8,17 @@ from django.http import HttpResponse
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'profile.html', {'user':request.user})
+
+def video(request):
+    return render(request, 'video.html')
 
 def start(request):
     return render(request,'index.html')
 
 def performances(request):
     users = User.objects.all()
-    return render(request , 'performances.html', {'users':users})
+    return render(request , 'live.html', {'user1':users[0],'user2':users[1]})
 
 def signup(request):
     if request.method == 'POST':
@@ -26,6 +29,7 @@ def signup(request):
             user.profile.bio = form.cleaned_data.get('bio')
             user.profile.email = form.cleaned_data.get('email')
             user.profile.pic = form.cleaned_data.get('pic')
+            user.mobile = form.cleaned_data.get('mobile')
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)

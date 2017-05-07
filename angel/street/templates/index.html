@@ -83,13 +83,13 @@ h5
 <body>	
 	<div class="overlay"></div>
 	<video autoplay loop muted id="bgvideo">
-		<source src="output.mp4" type="video/mp4">
+		<source src="../media/output.mp4" type="video/mp4">
 	</video>
 
 	<div class="container white z-depth-2 col s12" style="min-width: 800px;">
 	<ul class="tabs teal">
 		<li class="tab col s3"><a id="a" class="white-text active" href="#register" onclick="change('register');">register</a></li>
-		<li class="tab col s3"><a id="b" class="white-text" onclick="change('login'); ">login</a></li>
+		<li class="tab col s3"><a id="b" class="white-text" href="#login	" onclick="change('login'); ">login</a></li>
 	</ul>
 	<div id="login" class="col s6 hidden center">
 		<form class="col s12">
@@ -120,6 +120,8 @@ h5
 		<form class="col s12" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 			<div class="form-container">
+			<div id="first">
+				
 				<h3><font color="white">Sign Up</font></h3>
 				<div class="row">
 					<div class="input-field col s6" style="color: white;">
@@ -136,6 +138,12 @@ h5
 				</div>
 				<div class="row">
 					<div class="input-field col s12" style="color: white;">
+						{{ form.mobile }}
+						<label for="{{ form.mobile.id_for_label }}">Mobile Number</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
 						{{ form.password1 }}
 						<label for="{{ form.password1.id_for_label }}">Enter Password</label>
 					</div>
@@ -146,21 +154,35 @@ h5
 						<label for="{{ form.password2.id_for_label }}">Password Confirmation</label>
 					</div>
 				</div>
-				<div class="row">
+				<button class="btn waves-effect waves-light teal" name="action" onclick="xyz()">Submit</button>
+				</div>
+
+				<div id="second" style="display: none;">
+				<div class="row" >
 					<div class="input-field col s12" style="color: white;">
 						{{ form.bio }}
 						<label for="{{ form.bio.id_for_label }}">Bio</label>
 					</div>
 				</div>
+				<center>
+					<button class="btn waves-effect waves-light teal" name="action" onclick="abc()">Submit</button>
+				</center>
+
+				</div>
+
+				<div id="third" style="display: none;">
 				<div class="row">
 					<div class="input-field col s12" style="color: white;">
 						{{ form.pic }}
 						<!-- <label for="{{ form.pic.id_for_label }}">Upload Picture</label> -->
 					</div>
 				</div>
+
 				<center>
 					<button class="btn waves-effect waves-light teal" type="submit" name="action">Submit</button>
 				</center>
+
+				</div>
 			</div>
 		</form>
 	</div>
@@ -173,7 +195,7 @@ h5
               You Owe Me a Buck.</p>
             </div>
             <div class="card-action">
-              <a href="https://appear.in/pranav"><font color="teal"></style>Watch Live</font></a>
+              <a href="http://localhost:8000/performances"><font color="teal"></style>Watch Live</font></a>
             </div>
           </div>
         </div>
@@ -205,7 +227,25 @@ function change(id) {
 		
 	}
 }
+
+function xyz() {
+	$("#first").css('display','none');
+	$("#second").css('display','block');
+	$("#third").css('display','none');
+}
+
+function abc() {
+	$("#first").css('display','none');
+	$("#second").css('display','none');
+	$("#third").css('display','block');
+}
+
 window.onload = change('register');
+
+$(document).ready(function(){
+  var x = document.getElementById("bgvideo");
+  x.play();
+});
 </script>
 </body>
 </html>

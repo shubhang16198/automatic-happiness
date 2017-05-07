@@ -7,8 +7,9 @@ class SignUpForm(UserCreationForm):
     bio = forms.CharField(help_text='A bit about yourself')
     email = forms.EmailField(help_text="A valid email id")
     pic  = forms.FileField(help_text="A picture of you!")
+    mobile = forms.CharField(help_text="For payment purposes.")
 
 
     class Meta:
         model = User
-        fields = ('username', 'bio', 'email' , 'pic' ,'password1', 'password2', )
+        fields = ('username', 'bio', 'email' , 'mobile' , 'pic' ,'password1', 'password2', )

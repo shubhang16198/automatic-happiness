@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^accounts/profile/', views.home , name = 'home' ),
     url(r'^performances/',views.performances,name = 'performances'),
+    url(r'^video/',views.video,name='video'),
 
 ]

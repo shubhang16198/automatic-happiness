@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    @import"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";
+@import"https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700";
+body{font-family:'Open Sans Condensed',sans-serif;font-size:18px}
+.backto{background:#039; padding:12px 0; color:#fff}
+.backto a{color:#FFF; text-decoration:none}
+.cards-row{padding-top:40px; padding-bottom:20px; background:#eee}
+.thumbnail{padding:0; border-radius:0; border:none; box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)}
+.thumbnail>img{width:100%; display:block}
+.thumbnail h3{font-size:26px}
+.thumbnail h3,.card-description{margin:0; padding:8px 0; border-bottom:solid 1px #eee; text-align:justify}
+.thumbnail p{padding-top:8px; font-size:20px}
+.thumbnail .btn{border-radius:0; box-shadow:0 2px 5px 0,0 2px 10px 0; font-size:20px color: teal;}
+</style>
+    <title></title>
+</head>
+<body>
+
+
+<div class="container-fluid cards-row" style="background-color: teal;">
+<div class="container">
+<div class="row">
+  <div class="col-sm-6 col-md-4" style="transform: translateY(10%)";>
+    <div class="thumbnail">
+      <img src="../media/{{ user1.profile.pic }}" alt="profile-pic" style="max-height: 200px;">
+      <div class="caption">
+        <h3>{{ user1.username }}</h3>
+        <p class="card-description"><strong>{{ user1.profile.bio }}</p>
+        <p align="center" style=""><a href="#" class="btn btn-primary" role="button" style="background-color: teal;">Stream Live</a></p>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-6 col-md-4" style="transform: translateY(10%)";>
+    <div class="thumbnail">
+      <img src="../media/{{ user2.profile.pic }}" alt="profile-pic" style="max-height: 200px;">
+      <div class="caption">
+        <h3>{{ user2.username }}</h3>
+        <p class="card-description"><strong>{{ user2.profile.bio }}</p>
+        <p align="center" style=""><a href="#" class="btn btn-primary" role="button" style="background-color: teal;">Not Online Now.</a></p>
+      </div>
+    </div>
+  </div>
+  
+    <!-- <div class="col-sm-6 col-md-4" style="transform: translateY(20%);">
+    <div class="thumbnail">
+      <img src="https://1.bp.blogspot.com/-aFQ-W_KTFWQ/V6BdtpSUy6I/AAAAAAAAAH4/xD_U-BYItSsNvk1UGfROqLBzzU1h32oXQCLcB/s320/4-diwali-greeting-cards-by-ajay-acharya.jpg" alt="Bootstrap Thumbnail Customization">
+      <div class="caption">
+        <h3>Bootstrap Cards Design</h3>
+        <p class="card-description"><strong>Bootstrap Thumbnail</strong> Customization Example. Here are customized <strong>bootstrap cards</strong>. We just apply some box shadow and remove border radius.</p>
+        <p align="center"><a href="#" class="btn btn-primary" role="button" style="background-color: teal;">Stream Live</a></p>
+      </div>
+    </div>
+  </div>
+  
+    <div class="col-sm-6 col-md-4" style="transform: translateY(20%)";>
+    <div class="thumbnail">
+      <img src="https://1.bp.blogspot.com/-aFQ-W_KTFWQ/V6BdtpSUy6I/AAAAAAAAAH4/xD_U-BYItSsNvk1UGfROqLBzzU1h32oXQCLcB/s320/4-diwali-greeting-cards-by-ajay-acharya.jpg" alt="Bootstrap Thumbnail Customization">
+      <div class="caption">
+        <h3>Material Design Cards</h3>
+        <p class="card-description"><strong>Bootstrap Thumbnail</strong> Customization Example. Here are customized <strong>bootstrap cards</strong>. We just apply some box shadow and remove border radius.</p>
+        <p align="center"><a href="#" class="btn btn-primary" role="button" style="background-color: teal;">Stream Live</a></p>
+      </div>
+    </div>
+  </div> -->
+  
+</div>
+</div>
+</div>
+</body>
+</html>

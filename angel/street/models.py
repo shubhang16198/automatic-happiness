@@ -11,6 +11,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     email = models.EmailField(max_length=100,blank=True)
     pic = models.FileField(default='SOME STRING')
+    mobile = models.TextField(max_length=10,blank=False)
     #location = models.CharField(max_length=30, blank=True)
     #birth_date = models.DateField(null=True, blank=True)
 
