@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	.hidden {
+		visibility: hidden;
+		display: none;
+	}
+	.visible-block {
+		visibility: visible;
+		display: block;
+	}
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+		video#bgvideo {
+			z-index: -1 !important;
+			position: fixed;
+			width: 100%;
+		}
+		.overlay {
+			z-index: 0 !important;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			display: block;
+			background-color: rgba(0, 0, 0, 0.7);
+			background-image: url('bg4.png');
+			background-repeat: no-repeat;
+		}
+	
+.center{
+	margin: auto;
+	position: absolute;
+}	
+.border{
+	border: 2px solid;
+	border-width: 2px;
+	border-color: white;
+}
+
+body
+{
+	background: #f5f5f5;
+}
+
+h5
+{
+	font-weight: 400;
+}
+
+.container
+{
+	position: relative;
+	margin-top: 20px;
+	width: 0px;
+	height: 0px;
+}
+
+.tabs .indicator
+{
+	background-color: white;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+	position: absolute;
+}
+</style>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+</head>
+<body>	
+	<div class="overlay"></div>
+	<video autoplay loop muted id="bgvideo">
+		<source src="output.mp4" type="video/mp4">
+	</video>
+
+	<div class="container white z-depth-2 col s12" style="min-width: 800px;">
+	<ul class="tabs teal">
+		<li class="tab col s3"><a id="a" class="white-text active" href="#register" onclick="change('register');">register</a></li>
+		<li class="tab col s3"><a id="b" class="white-text" onclick="change('login'); ">login</a></li>
+	</ul>
+	<div id="login" class="col s6 hidden center">
+		<form class="col s12" method="post">
+			{%  csrf_token %}
+			<div class="form-container">
+				<h3><font color="white">Welcome Back</font></h3>
+				<div class="row">
+					<div class="input-field col s12" style="color: white">
+						<!-- <input style="color: white;" id="email" type="email" class="validate"> -->
+						{{ form.username }}
+						<label for="{{ form.username.id_for_label }}">Username</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white">
+						<!-- <input style="color: white;" id="password" type="password" class="validate"> -->
+						{{ form.password }}
+						<label for="{{ form.password.id_for_label }}">Password</label>
+					</div>
+				</div>
+				<br>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" name="action">Connect</button>
+					<br>
+					<br>
+				</center>
+			</div>
+		</form>
+	</div>
+	<div id="register" class="col s6 visible-block active center">
+		<form class="col s12" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<div class="form-container">
+				<h3><font color="white">Sign Up</font></h3>
+				<div class="row">
+					<div class="input-field col s6" style="color: white;">
+						{{ form.username.errors }}
+						<label for="{{ form.username.id_for_label }}">Username</label>
+						{{ form.username }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
+						{{ form.email }}
+						<label for="{{ form.email.id_for_label }}">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
+						{{ form.password1 }}
+						<label for="{{ form.password1.id_for_label }}">Enter Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
+						{{ form.password2 }}
+						<label for="{{ form.password2.id_for_label }}">Password Confirmation</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
+						{{ form.bio }}
+						<label for="{{ form.bio.id_for_label }}">Bio</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12" style="color: white;">
+						{{ form.pic }}
+						<!-- <label for="{{ form.pic.id_for_label }}">Upload Picture</label> -->
+					</div>
+				</div>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" name="action">Submit</button>
+				</center>
+			</div>
+		</form>
+	</div>
+	<div align="center" class="row">
+        <div class="col s6 offset-s6" style="transform: translateY(60%)";>
+          <div class="card transparent">
+            <div class="card-content white-text">
+              <span class="card-title"><b>Street Performance</b><br><font size="2"><i>Real Talent Lies Here.</i></font></span>
+              <p>If My Street Performance Make You Stop Walking By,
+              You Owe Me a Buck.</p>
+            </div>
+            <div class="card-action">
+              <a href="https://appear.in/pranav"><font color="teal"></style>Watch Live</font></a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"> </script>
+
+<script type="text/javascript">
+
+function change(id) {
+	if (id === 'register') {
+		window.location.href = "/"
+		$('#login').addClass('hidden');
+		$('#register').removeClass('hidden');
+		$('#register').addClass('visible-block');
+		$('#login').removeClass('visible-block');
+		$('#a').addClass('border');
+		$('#b').removeClass('border');
+	}
+	if (id === 'login') {
+		$('#register').addClass('hidden');
+		$('#login').removeClass('hidden');
+		$('#login').addClass('visible-block');
+		$('#register').removeClass('visible-block');
+		$('#b').addClass('border');
+		$('#a').removeClass('border');
+		
+	}
+}
+window.onload = change('login');
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'home.html')
 
 def start(request):
-    return render(request,'start.html')
+    return render(request,'index.html')
 
 def performances(request):
     users = User.objects.all()
@@ -33,4 +33,4 @@ def signup(request):
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
