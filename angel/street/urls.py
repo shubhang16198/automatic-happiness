@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'^accounts/profile/', views.home , name = 'home' ),
     url(r'^performances/',views.performances,name = 'performances'),
     url(r'^video/',views.video,name='video'),
+    url(r'^stream/',views.stream,name='stream'),
+    url(r'^stream2/',views.stream2,name='stream2')
 
 ]

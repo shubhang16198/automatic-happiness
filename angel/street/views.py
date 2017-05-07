@@ -20,6 +20,13 @@ def performances(request):
     users = User.objects.all()
     return render(request , 'live.html', {'user1':users[0],'user2':users[1]})
 
+def stream(request):
+    return render(request,'stream.html')
+
+    
+def stream2(request):
+    return render(request,'stream2.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST , request.FILES)
